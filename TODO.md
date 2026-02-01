@@ -1,0 +1,11 @@
+- [ ] Wire Silero VAD adapter (energy VAD is the current fallback)
+- [ ] Verify parakeet-mlx streaming API against installed version
+- [ ] Verify Kokoro output rate and voice ids against installed version
+- [ ] Barge-in: cancel in-flight response when speech restarts
+- [ ] First-run model downloader with progress reported to the PWA
+- [ ] py2app bundle + code signing for the .app
+- [ ] Linux/Windows packaging
+- [x] Repo scaffold, PLAN.md, config, health endpoint
+- [x] OpenAI Realtime-compatible WebSocket server
+- [x] STT/LLM/TTS/VAD adapter interfaces with graceful stubs
+- [x] PWA control page: on/off, model picker, live meters
