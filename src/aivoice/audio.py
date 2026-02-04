@@ -28,6 +28,8 @@ def resample(samples: np.ndarray, src_rate: int, dst_rate: int) -> np.ndarray:
         return samples
     duration = samples.size / src_rate
     dst_len = int(round(duration * dst_rate))
+    if dst_len < 2:
+        return np.zeros(0, dtype=np.float32)
     src_idx = np.linspace(0, samples.size - 1, dst_len, dtype=np.float64)
     return np.interp(src_idx, np.arange(samples.size), samples).astype(np.float32)
 
