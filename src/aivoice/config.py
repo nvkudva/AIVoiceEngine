@@ -60,9 +60,15 @@ class Config:
             if isinstance(current, bool):
                 setattr(cfg, key, env.lower() in ("1", "true", "yes", "on"))
             elif isinstance(current, int):
-                setattr(cfg, key, int(env))
+                try:
+                    setattr(cfg, key, int(env))
+                except ValueError:
+                    continue
             elif isinstance(current, float):
-                setattr(cfg, key, float(env))
+                try:
+                    setattr(cfg, key, float(env))
+                except ValueError:
+                    continue
             elif isinstance(current, str):
                 setattr(cfg, key, env)
         return cfg
