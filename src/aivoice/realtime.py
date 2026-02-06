@@ -98,7 +98,10 @@ class RealtimeSession:
                 self.max_tokens = int(patch["max_response_output_tokens"])
             if "turn_detection" in patch:
                 td = patch["turn_detection"]
-                self.turn_detection = None if td is None else td.get("type", "server_vad")
+                if td is None:
+                    self.turn_detection = None
+                elif isinstance(td, dict) and td.get("type") in ("server_vad",):
+                    self.turn_detection = td["type"]
             await self.send("session.updated", session=self.session_payload())
 
         elif type_ == "input_audio_buffer.append":
