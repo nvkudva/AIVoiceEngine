@@ -13,7 +13,7 @@ from .audio import b64_to_float, float_to_b64
 from .config import SAMPLE_RATE
 from .engine import Engine
 
-SENTENCE_END = re.compile(r"[.!?;:\n]")
+SENTENCE_END = re.compile(r"[.!?\n]")
 MIN_SENTENCE_CHARS = 12
 
 
