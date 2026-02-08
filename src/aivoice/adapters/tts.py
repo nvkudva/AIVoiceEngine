@@ -27,7 +27,7 @@ class KokoroTTS(TTSAdapter):
             return
 
         loop = asyncio.get_running_loop()
-        chunks: queue.Queue = queue.Queue(maxsize=8)
+        chunks: queue.Queue = queue.Queue()
 
         def produce() -> None:
             try:
